@@ -537,24 +537,6 @@ def render_login_widget(supabase: Any) -> None:
                         else:
                             st.error("Username atau password salah. Silakan coba lagi.")
 
-            # Quick access helpers for demo & testing
-            st.markdown("---")
-            st.caption("⚡ **Akses Cepat (Uji Coba & Demo):**")
-            col_q1, col_q2 = st.columns(2)
-            with col_q1:
-                if st.button("🔑 Login sbg Admin", use_container_width=True, key="quick_admin"):
-                    with st.spinner("🚀 Mempersiapkan sesi Administrator..."):
-                        admin_user = authenticate_user(supabase, "admin", "admin123")
-                        if admin_user:
-                            set_current_user(admin_user)
-                            st.rerun()
-            with col_q2:
-                if st.button("🎓 Login sbg Siswa", use_container_width=True, key="quick_student"):
-                    with st.spinner("🎓 Mempersiapkan sesi Siswa..."):
-                        student_user = authenticate_user(supabase, "siswa1", "siswa123")
-                        if student_user:
-                            set_current_user(student_user)
-                            st.rerun()
 
         with tab_register:
             st.caption("Pendaftaran akun siswa dan pembuatan perangkat IoT mandiri:")
